@@ -15,15 +15,15 @@ public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     @JsonIgnore
-    User user;
+    private User user;
 
     @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id",nullable = false)
     @JsonIgnore
-    Post post;
+    private Post post;
 }

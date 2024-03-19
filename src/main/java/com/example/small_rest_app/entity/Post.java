@@ -19,17 +19,17 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Long id;
+    private Long id;
 
     @Column(name = "title")
-    String title;
+    private String title;
 
     @Column(name = "text")
-    String text;
+    private String text;
 
     @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     @JsonIgnore
-    User user;
+    private User user;
 
 }
