@@ -40,7 +40,6 @@ public class PostServiceImpl implements PostService{
             return null;
         }
             Post postSave = new Post();
-            postSave.setId(newPostRes.getId());
             postSave.setText(newPostRes.getText());
             postSave.setTitle(newPostRes.getTitle());
             postSave.setUser(user);
