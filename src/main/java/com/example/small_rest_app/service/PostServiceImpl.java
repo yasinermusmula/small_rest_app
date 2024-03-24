@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService{
@@ -25,11 +26,14 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public List<Post> findAll(Optional<Long> userId) {
+    public List<PostResponseDto> findAll(Optional<Long> userId) {
+        List<Post> list;
         if(userId.isPresent()){
-            return postRepository.findByUserId(userId.get());
+            list = postRepository.findByUserId(userId.get());
+        } else {
+            list = postRepository.findAll();
         }
-        return postRepository.findAll();
+        return list.stream().map(post -> new PostResponseDto(post)).collect(Collectors.toList());
     }
 
     @Override
