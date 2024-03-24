@@ -16,19 +16,19 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    long id;
+    private Long id;
 
     @Column(name = "text")
-    String text;
+    private String text;
 
     @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     @JsonIgnore
-    User user;
+    private User user;
 
     @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id",nullable = false)
     @JsonIgnore
-    Post post;
+    private Post post;
 
 }
