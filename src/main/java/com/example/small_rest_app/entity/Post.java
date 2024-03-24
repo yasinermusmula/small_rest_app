@@ -27,9 +27,8 @@ public class Post {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id",nullable = false)
-    @JsonIgnore
     private User user;
 
 }
