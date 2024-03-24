@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostService {
-    List<Post> findAll(Optional<Long> userId);
+    List<PostResponseDto> findAll(Optional<Long> userId);
     Post save(PostResponseDto post);
     Post delete(Long id);
     Post findById(Long postId);
